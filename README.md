@@ -45,20 +45,20 @@ The following sections will describe in detail, what all things were done to aut
 3. The requirements.txt file contains all the dependencies required for the script to run. 
 4. To resolve the dependencies, run 
  ```bash
- pip install -r requirements.txt 
+ $ pip install -r requirements.txt 
 ```
 
 ### Executing the script:
 1. To execute the script use the following command
 ```bash
-python aws_script.py
+$ python aws_script.py
 ```
 2. The script will execute and the instance will be created. The IP address of the instance will be displayed.
 
 ### Accessing the instance:
 1. You can use the IP address to ssh into the instance that was just spawned.
 ```bash
-ssh -i [location]/test_key.pem ubuntu@[IP address]
+$ ssh -i [location]/test_key.pem ubuntu@[IP address]
 ```
 ### Resources:
 1. https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
@@ -95,20 +95,20 @@ $ ssh-keygen -t rsa
 3. The requirements.txt file contains all the dependencies required for the script to run. 
 4. To resolve the dependencies, run 
  ```bash
- pip install -r requirements.txt 
+ $ pip install -r requirements.txt 
 ```
 
 ### Executing the script:
 1. To execute the script use the following command
 ```bash
-python gcp_script.py
+$ python gcp_script.py
 ```
 2. The script will execute and the instance will be created. The IP address of the instance will be displayed.
 
 ### Accessing the instance:
 1. You can use the IP address to ssh into the instance that was just spawned.
 ```bash
-ssh [IP address]
+$ ssh [IP address]
 ```
 ### Resources:
 1. https://cloud.google.com/compute/docs/reference/rest/v1/
