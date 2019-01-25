@@ -45,18 +45,18 @@ def print_images(client):
             print("Image id: {} - {}".format(image['ImageId'], image['Platform']))
             print("-----------------------")
 
-def create_instance(resource):
+def create_instance(resource, configuration_options):
     """
         THIS FUNCTION CREATES AN INSTANCE
     """
     try:
         response = resource.create_instances(
-                        ImageId = "ami-0ac019f4fcb7cb7e6",
-                        MinCount = 1,
-                        MaxCount = 1,
-                        InstanceType = "t2.micro",
-                        KeyName = "test_key",
-                        SecurityGroups=['test'])
+                        ImageId = configuration_options['ImageId'],
+                        MinCount = configuration_options['MinCount'],
+                        MaxCount = configuration_options['MaxCount'],
+                        InstanceType = configuration_options['InstanceType'],
+                        KeyName = configuration_options['KeyName'],
+                        SecurityGroups=configuration_options["SecurityGroups"])
     except:
         print("ERROR: Could not create an instance!")
     else:
@@ -77,13 +77,22 @@ def print_instance_ip_address(resource, instance_id):
     for instance in instances:
         print(instance.public_ip_address)        
     
-if __name__ == "__main__":
+if __name__ == "__main__":    
 
     ex2_resource, ec2_client = initialize()
 
     print_regions(ec2_client)    
 
-    response, instance_id = create_instance(ex2_resource)    
+    configuration_options = {
+        ImageId : "ami-0ac019f4fcb7cb7e6",
+        MinCount : 1,
+        MaxCount : 1,
+        InstanceType : "t2.micro",
+        KeyName : "test_key",
+        SecurityGroups : ['test']
+    }
+
+    response, instance_id = create_instance(ex2_resource, configuration_options)    
 
     print_instance_ip_address(ex2_resource, instance_id)
     
