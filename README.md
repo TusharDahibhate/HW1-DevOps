@@ -56,7 +56,7 @@ Following are the configuration options that can be set:
 3. MaxCount - The maximum number of instances that you would like to spawn.
 4. InstanceType - It specifies the hardware configuration of the instance. Free Tier only provides t2.micro.(More information here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)
 5. KeyName - The SSH key that will be used to SSH into the instance that you will create.
-6. SecurityGroups - The security groups will control the access to the instance that you will create.\
+6. SecurityGroups - The security groups will control the access to the instance that you will create.
 
 Region can be specified here but in this script, region will be taken from the config file.(More information here: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) 
 
@@ -69,6 +69,17 @@ $ python aws_script.py
 
 ### Accessing the instance:
 1. You can use the IP address to ssh into the instance that was just spawned.
+2. Access to the instance will depend upon the type of image that you are using.
+3. Depending on the AMI, the username will change.
+  a. For Amazon Linux 2 or the Amazon Linux AMI, the user name is ec2-user.
+  b. For a Centos AMI, the user name is centos.
+  c. For a Debian AMI, the user name is admin or root.
+  d. For a Fedora AMI, the user name is ec2-user or fedora.
+  e. For a RHEL AMI, the user name is ec2-user or root.
+  f. For a SUSE AMI, the user name is ec2-user or root.
+  g. For an Ubuntu AMI, the user name is ubuntu.
+
+Following is the example of accessing ubuntu instance
 ```bash
 $ ssh -i [location]/test_key.pem ubuntu@[IP address]
 ```
