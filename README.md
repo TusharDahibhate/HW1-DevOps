@@ -51,14 +51,14 @@ The following sections will describe in detail, what all things were done to aut
 You can configure the stript to create the instance that you desire.
 
 Following are the configuration options that can be set:
-1. ImageId - This specifies what base image that you want for your instance. Example - Ubuntu, RedHat, etc
-2. MinCount - The minimum number of instances that you would like to spawn
-3. MaxCount - The maximum number of instances that you would like to spawn
-4. InstanceType - It specifies the hardware configuration of the instance. Free Tier only provides t2.micro
+1. ImageId - This specifies what base image that you want for your instance. Example - Ubuntu, RedHat, etc.
+2. MinCount - The minimum number of instances that you would like to spawn.
+3. MaxCount - The maximum number of instances that you would like to spawn.
+4. InstanceType - It specifies the hardware configuration of the instance. Free Tier only provides t2.micro.(More information here: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html)
 5. KeyName - The SSH key that will be used to SSH into the instance that you will create.
 6. SecurityGroups - The security groups will control the access to the instance that you will create.\
 
-Region can be specified here but in this script, region will be taken from the config file.
+Region can be specified here but in this script, region will be taken from the config file.(More information here: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html) 
 
 ### Executing the script:
 1. To execute the script use the following command
@@ -114,10 +114,10 @@ $ ssh-keygen -t rsa
 In this script, you can configure the instance as per your requirement.
 Following are the configuration options present.
 1. project_id - Specifies under what project the instance will be spawned
-2. image_project - Specifies that different image projects (More details on the Images section of the Compute Engine Dashboard)
-3. image_family - Specifies the image family (More details on the Images section of the Compute Engine Dashboard)
-4. zone_name - Specifies the zone that you want (More details on the Zones section of the Compute Engine Dashboard)
-5. machine_type - Specifies the machine type (more information here: https://cloud.google.com/compute/docs/machine-types)
+2. image_project - Specifies different image projects (More details in the Images section of the Compute Engine Dashboard)
+3. image_family - Specifies the image family (More details in the Images section of the Compute Engine Dashboard)
+4. zone_name - Specifies the zone (More details in the Zones section of the Compute Engine Dashboard)
+5. machine_type - Specifies the machine type (More information here: https://cloud.google.com/compute/docs/machine-types)
 6. instance_name - This is the instance identifier
 
 ### Executing the script:
