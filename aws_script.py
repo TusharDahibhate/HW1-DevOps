@@ -20,13 +20,11 @@ def print_regions(client):
         response = client.describe_regions()
     except:
         print("ERROR: Could not print the regions!")
-    else:
-        print("-----------------------")
-        print("REGIONS:")
-        print("-----------------------")
+    else:        
+        print("------------------------- REGIONS ---------------------------------")        
         for region in response['Regions']:
             print(region['RegionName'])    
-        print("-----------------------")
+        print("-------------------------------------------------------------------")
 
 def print_images(client):
     """
@@ -39,11 +37,9 @@ def print_images(client):
     else:
         
         for image in response['Images']:
-            print("-----------------------")
-            print("IMAGES:")
-            print("-----------------------")
+            print("---------------------- AVAILABLE IMAGES ---------------------------")
             print("Image id: {} - {}".format(image['ImageId'], image['Platform']))
-            print("-----------------------")
+            print("-------------------------------------------------------------------")
 
 def create_instance(resource, configuration_options):
     """
@@ -75,21 +71,23 @@ def print_instance_ip_address(resource, instance_id):
     time.sleep(10)
     instances = resource.instances.filter(InstanceIds=[""+str(instance_id) + ""] )
     for instance in instances:
-        print(instance.public_ip_address)        
+        print("IP address of the instance: {}".format(instance.public_ip_address))
     
 if __name__ == "__main__":    
-
+    
+    print("---------------------- AWS PROVISIONING ---------------------------")
+    
     ex2_resource, ec2_client = initialize()
 
     print_regions(ec2_client)    
 
     configuration_options = {
-        ImageId : "ami-0ac019f4fcb7cb7e6",
-        MinCount : 1,
-        MaxCount : 1,
-        InstanceType : "t2.micro",
-        KeyName : "test_key",
-        SecurityGroups : ['test']
+        "ImageId" : "ami-0ac019f4fcb7cb7e6",
+        "MinCount" : 1,
+        "MaxCount" : 1,
+        "InstanceType" : "t2.micro",
+        "KeyName" : "test_key",
+        "SecurityGroups" : ['test']
     }
 
     response, instance_id = create_instance(ex2_resource, configuration_options)    

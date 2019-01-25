@@ -118,6 +118,8 @@ def get_instance_details(project_id, zone_name, instance_name):
 
 if __name__ == "__main__":
 
+    print("---------------------- GCP PROVISIONING ---------------------------")
+
     project_id = 'calm-library-229319'
     image_project = 'gce-uefi-images'
     image_family = 'ubuntu-1804-lts'
@@ -136,9 +138,9 @@ if __name__ == "__main__":
 
     creation_response = create_instance(machine_type_url, image_data, zone_name, project_id, instance_name)
 
-    print(creation_response)
+    print("Instance Id: {}".format(creation_response['id']))
     time.sleep(10)
 
     instance_details = get_instance_details(project_id, zone_name, instance_name)
     
-    print(instance_details['networkInterfaces'][0]['accessConfigs'][0]['natIP'])
+    print("IP address of the instance: {}".format(instance_details['networkInterfaces'][0]['accessConfigs'][0]['natIP']))
