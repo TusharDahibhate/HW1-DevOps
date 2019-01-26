@@ -146,3 +146,7 @@ $ ssh [IP address]
 ### Resources:
 1. https://cloud.google.com/compute/docs/reference/rest/v1/
 2. https://cloud.google.com/compute/docs/tutorials/python-guide#before-you-begin
+
+
+# Screencast:
+https://www.youtube.com/watch?v=RD1AdB3W4hM
